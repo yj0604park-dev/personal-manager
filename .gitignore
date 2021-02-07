@@ -285,6 +285,7 @@ Temporary Items
 
 # SFTP configuration file
 sftp-config.json
+sftp.json
 
 # Package control specific files
 Package Control.last-run
