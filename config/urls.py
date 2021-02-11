@@ -5,6 +5,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from graphene_django.views import GraphQLView
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
@@ -18,7 +19,10 @@ urlpatterns = [
     path("users/", include("finance.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
     urlpatterns += staticfiles_urlpatterns()

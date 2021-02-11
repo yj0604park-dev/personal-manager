@@ -334,3 +334,4 @@ finance/media/
 
 !.envs/.local/
 
+finance/stock/migrations/
