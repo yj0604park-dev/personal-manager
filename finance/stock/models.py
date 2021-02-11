@@ -28,11 +28,23 @@ class AccountTypeChoices(models.TextChoices):
     Deposit = "Deposit", _("예금")
 
 
+class BankType(models.TextChoices):
+    """은행 종류."""
+
+    Bank = "은행", _("Bank")
+    Securities = "증권사", _("Securities")
+    Insurance = "보험사", _("Insurance")
+    Crypto = "암호화폐", _("Crypocurrency")
+
+
 # Models
 class Bank(models.Model):
     """은행."""
 
     name = models.CharField(max_length=40)
+    bank_type = models.CharField(
+        max_length=10, choices=BankType.choices, default=BankType.Bank
+    )
 
     def __str__(self):
         return str(self.name)

@@ -30,3 +30,8 @@ class TransferAdmin(admin.ModelAdmin):
 @admin.register(models.Account)
 class AccountAdmin(admin.ModelAdmin):
     """계좌 정보."""
+
+
+@admin.register(models.Bank)
+class BankAdmin(admin.ModelAdmin):
+    """은행 정보."""
